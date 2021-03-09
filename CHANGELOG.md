@@ -5,10 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog][keep-a-changelog]
 and this project adheres to [Semantic Versioning][semantic-versioning].
 
-## Unreleased
+## 2021-03-09
 
-- Option to disable SSH after installation
-- Change port for SSH server on host machine
+- Fix installer URL
+- Works with Debian 10 Pi image
 
 ## [1.1.1][] - 2018-04-05
 
