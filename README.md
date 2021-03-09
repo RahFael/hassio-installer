@@ -3,17 +3,20 @@
 [![Documentation][badge-docs]][hass-io]
 [![Discord][badge-discord]][discord]
 [![Version][badge-version]][hassio-installer]
-[![Donate][badge-donate]][donate]
 
 This script will install all [requirements][requirements], and then install
-[Hass.io][hass-io]. Please report any [issues][issues] that experience.
+[Hass.io][hass-io].
 
 ## Requirements
 
 - [Raspberry Pi 3 B+][raspberry-pi]
-- [Raspbian Stretch Lite][stretch-lite]
+- [raspi-debian] Debian 10 Raspberry - worked March 2021 -
+- [Raspbian Stretch Lite][stretch-lite] - not tested 2021 - 
 
 ## Useful Tips
+- on "real Debian image" I added my public key to the autorized_keys (/root/.ssh/authorized_keys) file after writing the image. I didn't try Raspian Light which might be more convenient
+
+### Old Tips for Raspbian Stretch
 
 - Be sure to secure your Raspberry Pi by disabling SSH and changing the
   password for `pi` user.
@@ -26,11 +29,11 @@ This script will install all [requirements][requirements], and then install
 
 ## Installation Instructions
 
-1. Flash the latest [Raspbian Stretch Lite][stretch-lite] image.
+1. Flash the latest [Raspbian Stretch Lite][stretch-lite] image / Debian 10
 1. Run this as root user (`sudo su`):
 
 ```bash
-curl -sL https://raw.githubusercontent.com/dale3h/hassio-installer/master/hassio_rpi3bp | bash -s
+curl -sL https://raw.githubusercontent.com/sebkouba/hassio-installer/master/hassio_rpi3bp | bash -s
 ```
 
 ## Known Issues
@@ -39,11 +42,15 @@ curl -sL https://raw.githubusercontent.com/dale3h/hassio-installer/master/hassio
 
 - **SSH server** add-on (from **Official add-ons**) does not work
   - ***Fix:** use community SSH add-on instead*
+  - Or use the same mechanism you used initially to ssh in to execute the script. No need for addons in this case.
 
 - Port conflict when using SSH add-on
   - ***Fix:** change the port in the SSH add-on options*
 
 ## Changelog & Releases
+
+### March 2021
+I'm hacking this together so it simply works. Readme has minor edits. No proper changelog for me :)
 
 This project keeps a [change log][changelog]. The format of the log is based
 on [Keep a Changelog][keep-a-changelog].
@@ -92,6 +99,7 @@ SOFTWARE.
 [requirements]: https://github.com/home-assistant/hassio-build/blob/master/install/README.md#requirements
 [semantic-versioning]: https://semver.org/spec/v2.0.0.html
 [stretch-lite]: https://downloads.raspberrypi.org/raspbian_lite_latest
+[raspi-debian]:https://raspi.debian.net/tested-images/
 
 [badge-discord]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge&maxAge=3600
 [badge-docs]: https://img.shields.io/badge/read-docs-blue.svg?style=for-the-badge
